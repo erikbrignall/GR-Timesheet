@@ -11,7 +11,7 @@ import streamlit as st
 from datetime import datetime, timedelta
 
 st.title('GR Timesheet analysis')
-st.sidebar.title('Timesheet analysis parameters:')
+st.sidebar.title('Timesheet file upload:')
 st.sidebar.write('Please upload the timesheet for analysis')
 
 uploaded_file = st.sidebar.file_uploader("Upload Timesheet File")
@@ -158,7 +158,7 @@ if uploaded_file is not None:
         st.write("Unaccounted - " + unaccounted)
     
         # summary table
-        st.subheader("Breakdown")
+        st.subheader("Breakdown (Minutes:")
         
         df_summary2 = df[['Day','Date','Name','Work Time (HH:MM)','Unavailability']]
         weekend_days = ['Sat','Sun','sat','sun']
