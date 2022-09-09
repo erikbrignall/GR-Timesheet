@@ -172,7 +172,7 @@ if uploaded_file is not None:
         df_summary2['DoW'] = df_summary2['DoW'].replace(1,"Sat/Sun")
         df_summary2['DoW'] = df_summary2['DoW'].replace(0,"Mon-Fri")
         
-        st.dataframe(df_summary2)
+        st.dataframe(df_summary2, width=800)
 
 
 
