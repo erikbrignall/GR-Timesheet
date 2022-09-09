@@ -158,7 +158,7 @@ if uploaded_file is not None:
         st.write("Unaccounted - " + unaccounted)
     
         # summary table
-        st.subheader("Breakdown (Minutes:")
+        st.subheader("Breakdown (Minutes):")
         
         df_summary2 = df[['Day','Date','Name','Work Time (HH:MM)','Unavailability']]
         weekend_days = ['Sat','Sun','sat','sun']
