@@ -157,7 +157,22 @@ if uploaded_file is not None:
         unaccounted = mins_to_hours(unaccounted)
         st.write("Unaccounted - " + unaccounted)
     
-    
+        # summary table
+        st.subheader("Breakdown")
+        
+        df_summary2 = df[['Day','Date','Name','Work Time (HH:MM)','Unavailability']]
+        weekend_days = ['Sat','Sun','sat','sun']
+        df_summary2['DoW'] = df_summary2.isin(weekend_days).any(1).astype(int)
+        
+        df_summary2 = pd.pivot_table(df_summary2, index=['DoW','Name'],values=['Work Time (HH:MM)','Unavailability'], aggfunc=np.sum)
+        df_summary2['Total_Hours'] = df_summary2['Unavailability'] + df_summary2['Work Time (HH:MM)']
+        
+        df_summary2 = df_summary2.reset_index(drop=False)
+        
+        df_summary2['DoW'] = df_summary2['DoW'].replace(1,"Sat/Sun")
+        df_summary2['DoW'] = df_summary2['DoW'].replace(0,"Mon-Fri")
+        
+        st.dataframe(df_summary2)
 
 
 
