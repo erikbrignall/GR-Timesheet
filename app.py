@@ -10,7 +10,7 @@ import numpy as np # load numpy for NaN substition
 import streamlit as st
 from datetime import datetime, timedelta
 
-st.title('GR Timesheet analysis')
+st.title('GC Timesheet analysis')
 st.sidebar.title('Timesheet file upload:')
 st.sidebar.write('Please upload the timesheet for analysis')
 
