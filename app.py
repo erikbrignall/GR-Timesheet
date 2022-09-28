@@ -119,7 +119,7 @@ if uploaded_file is not None:
         # reindex to ensure all index values are present
         nameindex = ['A/L','A/L BH', 'E', 'L', 'LD','N','Ten','SuE','SuL','SuLD','SuN','SD-Mand','SD-NonMand','Other PD','MIL','MD']
         df_summary = df_summary.reindex(nameindex)
-        df_summary.fillna(0)
+        df_summary = df_summary.fillna(0)
         
         # contracted
         tot_cont = df_summary.loc['E']['Total Hours'] + df_summary.loc['L']['Total Hours'] + df_summary.loc['LD']['Total Hours'] + df_summary.loc['N']['Total Hours']  + df_summary.loc['Ten']['Total Hours']
